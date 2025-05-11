@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="report-box" id="report">
+        <h2>Patient Report</h2>
+        <p><strong>Name:</strong> {{ patient_data['name'] }}</p>
+    <p><strong>Patient ID:</strong> {{ patient_data['patientid'] }}</p>
+    <p><strong>Age:</strong> {{ patient_data['age'] }}</p>
+    <p><strong>Sex:</strong> {{ patient_data['sex'] }}</p>
+    <p><strong>Chest Pain Type:</strong> {{ patient_data['cp'] }}</p>
+    <p><strong>Resting Blood Pressure:</strong> {{ patient_data['restingBP'] }}</p>
+    <p><strong>Cholesterol:</strong> {{ patient_data['chol'] }}</p>
+    <p><strong>Fasting Blood Sugar:</strong> {{ patient_data['fbs'] }}</p>
+    <p><strong>Resting Electrocardiographic Results:</strong> {{ patient_data['restingelectro'] }}</p>
+    <p><strong>Maximum Heart Rate:</strong> {{ patient_data['maxheartrate'] }}</p>
+    <p><strong>Exercise Induced Angina:</strong> {{ patient_data['exerciseangia'] }}</p>
+    <p><strong>Oldpeak:</strong> {{ patient_data['oldpeak'] }}</p>
+    <p><strong>Slope of Peak Exercise ST Segment:</strong> {{ patient_data['slope'] }}</p>
+    <p><strong>Number of Major Vessels:</strong> {{ patient_data['noofmajorvessels'] }}</p>
+    <p><strong>Prediction:</strong>{{ patient_data['result'] }}</p>
+    <button onclick="downloadPDF()">Download PDF</button>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            window.print(); // Basic browser print-to-PDF
+        }
+    </script>
+</body>
+</html>

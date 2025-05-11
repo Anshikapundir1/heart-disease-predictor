@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='he.css') }}">
+
+</head>
+<body>
+    <div class="main">
+        <h1>HEART DISEASE PREDICTOR</h1>
+    </div>
+    <div class="hero">
+        <form action="/predict" method="post">
+           
+
+            <label for="name">Enter Paitent Name</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="patientid">Enter Patient ID</label>
+            <input type="text" id="patientid" name="patientid" required><br><br>
+
+            <label for="age">Enter Patient Age</label>
+            <input type="text" id="age" name="age"><br><br>
+
+            <label>Enter Gender</label><br>
+            <input type="radio" id="male" name="sex" value="1" required>
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="sex" value="0">
+            <label for="female">Female</label><br><br>
+
+            <label for="cp">Chest Pain Type:</label><br>
+            <select name="cp" id="cp" required>
+                <option value="0">Typical Angina</option>
+                <option value="1">Atypical Angina</option>
+                <option value="2">Non-Anginal Pain</option>
+                <option value="3">Asymptomatic</option>
+            </select><br><br>
+
+            <label for="restingBP">Resting Blood Pressure (mm Hg):</label><br>
+            <input type="number" id="restingBP" name="restingBP" min="94" max="200" required
+            oninvalid="this.setCustomValidity('Please enter a blood pressure between 94 and 200 mm Hg')"
+            oninput="this.setCustomValidity('')"><br><br>
+
+            <label for="chol">Serum Cholesterol (mg/dL):</label><br>
+            <input type="number" id="chol" name="chol" min="126" max="564" required
+            oninvalid="this.setCustomValidity('Please enter a serum cholestrol  between 126 and 564 mm Hg')"
+            oninput="this.setCustomValidity('')"><br><br>
+
+            <label for="fbs">Fasting Blood Sugar &gt; 120 mg/dL:</label><br>
+            <select name="fbs" id="fbs" required>
+                <option value="1">True (&gt; 120 mg/dL)</option>
+                <option value="0">False (≤ 120 mg/dL)</option>
+            </select><br><br>
+
+            <label for="restingelectro">Resting Electrocardiogram Results:</label><br>
+            <select name="restingelectro" id="restingelectro" required>
+                <option value="0">Normal</option>
+                <option value="1">ST-T wave abnormality</option>
+                <option value="2">Left ventricular hypertrophy</option>
+            </select><br><br>
+
+            <label for="maxheartrate">Maximum Heart Rate Achieved:</label><br>
+            <input type="number" id="maxheartrate" name="maxheartrate" min="71" max="202" required
+            oninvalid="this.setCustomValidity('Please enter a max heart rate  between 71 and 202 mm Hg')"
+            oninput="this.setCustomValidity('')"><br><br>
+
+            <label for="exerciseangia">Exercise Induced Angina:</label><br>
+            <select name="exerciseangia" id="exerciseangia" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select><br><br>
+
+            <label for="oldpeak">Oldpeak (ST Depression):</label><br>
+            <input type="number" id="oldpeak" name="oldpeak" min="0" max="6.2" step="0.1" required
+            oninvalid="this.setCustomValidity('Please enter a oldpeak between 0 and 6.2 mm Hg')"
+            oninput="this.setCustomValidity('')"><br><br>
+
+            <label for="slope">Slope of the Peak Exercise ST Segment:</label><br>
+            <select name="slope" id="slope" required>
+                <option value="1">Upsloping</option>
+                <option value="2">Flat</option>
+                <option value="3">Downsloping</option>
+            </select><br><br>
+
+            <label for="noofmajorvessels">Number of Major Vessels (0-3):</label><br>
+            <select name="noofmajorvessels" id="noofmajorvessels" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select><br><br>
+
+            <button type="submit">Predict</button>
+
+        </form>
+        <br><br>
+{% if prediction_text %}
+    <div class="result">
+        <h2>{{ prediction_text }}</h2>
+    </div>
+{% endif %}
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #74ebd5, #acb6e5);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px 20px;
+}
+
+/* Title Section */
+.main h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 5px #333;
+}
+
+/* Form Container */
+.hero {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Input Labels */
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Inputs, Selects, and Radio Buttons */
+form input[type="text"],
+form input[type="number"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Radio Buttons styling */
+form input[type="radio"] {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* Submit Button */
+form button[type="submit"] {
+    margin-top: 25px;
+    width: 100%;
+    background-color: #2f80ed;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #1c60b3;
+}
